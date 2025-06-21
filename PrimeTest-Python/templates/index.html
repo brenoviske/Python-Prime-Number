@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+        body{
+            padding: 0;
+            margin: 0;
+            background-color: rgba(0, 0, 0, 0.779);
+        }
+        nav{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            margin: 0px 40px 0px 40px;
+        }
+        .portfolio-link a{
+            color: white;
+            font-size: 25px;
+            font-family: Ubuntu;
+            text-decoration: none;
+        }
+        .social-media{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 20px;
+        }
+        .social-media a {
+            color: white;
+            font-size: 25px;
+            font-family: Ubuntu;
+            text-decoration: none;
+        }  
+        main{
+            text-align: center;
+            margin-top: 150px;
+        }
+        h1{
+            color: white;
+            text-shadow: 1px 1px 15px black;
+            font-family: Ubuntu;
+            font-size: 40px;
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+        input{
+            text-align: center;
+            color: rgb(255, 255, 255);
+            width: 200px;
+            height: 20px;
+            background-color: rgba(79, 75, 75, 0.297);
+            border: none;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 1px 1px 10px black;
+
+        }
+        button{
+            padding: 10px;
+            border-radius: 10px;
+            border: none;
+            background-color: rgba(0, 0, 0, 0.442);
+            color: white;
+            font-family: Ubuntu;
+            font-size: 20px;
+            box-shadow: 1px 1px 10px black;
+            transition: transform 600ms ease-in-out;
+        }
+        button:hover{
+            background-color: white;
+            color: black;
+            transform: scale(1.2);
+            cursor: pointer;
+            border:  2px solid black;
+        }
+        p{
+            margin-top: 30px;
+            font-family: Ubuntu;
+            font-size: 40px;
+            font-weight: bold;
+            color: white;
+            text-shadow: 1px 1px 10px black;
+        }
+        .hidden{
+            opacity: 0;
+            filter: blur(15px);
+            transform: translateX(-100%);
+            transition: all 0.3s;
+        }
+        .show{
+            opacity: 1;
+            filter: blur(0);
+            transform: translateX(0);
+            transition: all 0.3s;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="portfolio-link">
+                <a href="https://brenoviske.github.io">Portfolio</a>
+            </div>
+            <div class="social-media">
+                <a href="https://www.linkedin.com/in/breno-reis-893009321/"> LinkedIn </a>
+                <a href="https://github.com/brenoviske"> GitHub </a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <h1>
+            Prime Number Test
+        </h1>
+        <form action="/" method="POST">
+            <input type="text" name="Number" placeholder="Type your number" required>
+            <button type="submit"> Test number </button>
+        </form>
+        {% if result %}
+            <p class="hidden">{{ result }}</p>
+        {% endif %}
+    </main>
+</body>
+<script>
+// Making the transition animations with JavaScript
+    const elements = document.querySelectorAll('.hidden')
+
+const myObserver = new IntersectionObserver((entries)=>{
+   entries.forEach((entry)=> {
+    if(entry.isIntersecting){
+        entry.target.classList.add('show')
+    }
+   })
+})
+
+elements.forEach((element)=> myObserver.observe(element))
+</script>
+</html>
