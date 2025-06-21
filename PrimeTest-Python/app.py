@@ -1,16 +1,16 @@
 from flask import Flask, render_template,request # Importing tools that i will need it
 app = Flask(__name__)# Creating flask application
 
-@app.route('/', methods = ['GET','POST'])
-def homepage():
+@app.route('/', methods = ['GET','POST']) # Creating route 
+def homepage():3 # Making the backend logic
     result = ''
     if request.method == 'POST':
         try:
-            Number = int(request.form.get('Number'))
+            Number = int(request.form.get('Number')) #getting the integer value from the HTML form
             if Number <= 1:
                 result = 'The number must be grater than one'
             else:
-                divisor = 0
+                divisor = 0 
                 for i in range (1, Number+1 ):
                     if Number % i == 0 : divisor+=1
                 if divisor == 2 :
@@ -23,7 +23,7 @@ def homepage():
 
 
 
-if __name__ == '__main__': app.run(debug=True,port=5600)
+if __name__ == '__main__': app.run(debug=True,port=5600) # putting the script in a if statement
 
 
 
