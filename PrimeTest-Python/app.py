@@ -2,7 +2,7 @@ from flask import Flask, render_template,request # Importing tools that i will n
 app = Flask(__name__)# Creating flask application
 
 @app.route('/', methods = ['GET','POST']) # Creating route 
-def homepage():3 # Making the backend logic
+def homepage(): # Making the backend logic
     result = ''
     if request.method == 'POST':
         try:
